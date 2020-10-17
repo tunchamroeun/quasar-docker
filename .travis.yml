@@ -1,6 +1,10 @@
 sudo:required
 services:
     - docker
+befor_install:
+    - docker build -t cloudwarekh/quasar-docker .
+script:
+    - docker run cloudwarekh/quasar-docker
 deploy:
     provider: elasticbeanstalk
     region: "ap-southeast-1"
