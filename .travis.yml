@@ -2,14 +2,16 @@ sudo: required
 services:
     - docker
 before_install:
-    - docker build -t cloudwarekh/quasar-docker .
+    - docker build .
 script: echo "Success!"
 deploy:
-  provider: elasticbeanstalk
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
-  region: "ap-southeast-1"
-  app: "quasar-docker"
-  env: "QuasarDocker-env"
-  bucket_name: "elasticbeanstalk-ap-southeast-1-567964750178"
-  bucket_path: "quasar-docker"
+    provider: elasticbeanstalk
+    region: "ap-southeast-1"
+    app: "quasar-docker"
+    env: "QuasarDocker-env"
+    bucket_name: "elasticbeanstalk-ap-southeast-1-567964750178"
+    bucket_path: "quasar-docker"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
