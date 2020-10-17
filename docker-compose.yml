@@ -1,0 +1,16 @@
+version: '3.7'
+services: 
+    web:
+        build:
+            #looking current dir of project
+            context: .
+            #specify docker file to build
+            dockerfile: Dockerfile.dev
+        ports: 
+            - "8080:8080"
+        volumes: 
+            #don't map node module
+            - /app/node_modules
+            #map current working dir to app dir
+            - .:/app
+        command: "quasar dev"
