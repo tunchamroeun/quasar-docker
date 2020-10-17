@@ -11,5 +11,7 @@ deploy:
     env: "QuasarDocker-env"
     bucket_name: "elasticbeanstalk-ap-southeast-1-567964750178"
     bucket_path: "quasar-docker"
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
     on:
         branch: master
