@@ -1,0 +1,15 @@
+sudo:required
+services:
+    - docker
+deploy:
+    provider: elasticbeanstalk
+    region: "ap-southeast-1"
+    app:"quasar-docker"
+    env:"QuasarDocker-env"
+    bucket_name:"elasticbeanstalk-ap-southeast-1-567964750178"
+    bucket_path:"quasar-docker"
+    on:
+        branch:master
+    access_key_id:$AWS_ACCESS_KEY
+    secret_access_key:
+        secure:$AWS_SECRET_KEY
